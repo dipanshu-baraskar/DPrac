@@ -1,9 +1,18 @@
 package com.linkedlist;
 
 public class MyLinkedList {
+    public class Node {
+        private Node next;
+        private int value;
+
+        public Node(int value) {
+            this.value = value;
+        }
+    }
+
     private Node head;
 
-    public void add(int value) {
+    private void add(int value) {
         Node n = new Node(value);
         if (head == null) {
             head = n;
@@ -14,40 +23,44 @@ public class MyLinkedList {
             temp = temp.next;
         }
         temp.next = n;
-
     }
 
-    public void delete(Node n) {
+    private void delete(Node n) {
         Node temp = head;
         while (temp.next != null) {
 
         }
     }
 
-    public void print() {
+    private void print() {
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.value);
+            System.out.print(temp.value + " ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
-    public class Node {
-        private Node next;
-        private int value;
-
-        public Node(int value) {
-            this.value = value;
+    private void reverse() {
+        Node prev = null;
+        Node curr = head;
+        while (curr != null) {
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
         }
-
+        head = prev;
     }
 
     public static void main(String[] args) {
         MyLinkedList ll = new MyLinkedList();
-
         ll.add(10);
         ll.add(20);
-        System.out.println(ll);
-
+        ll.add(30);
+        ll.add(40);
+        ll.print();
+        ll.reverse();
+        ll.print();
     }
 }

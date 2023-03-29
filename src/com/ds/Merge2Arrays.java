@@ -20,8 +20,8 @@ public class Merge2Arrays {
         for (int i = 0; i < m; i++) {
             mp.put(b[i], true);
         }
-        HashMap mm= new HashMap();
-        mm.put(1,2);
+//        HashMap mm= new HashMap();
+//        mm.put(1,2);
         // Printing keys of the map.
         for (Map.Entry<Integer, Boolean> me : mp.entrySet()) {
             System.out.print(me.getKey() + " ");

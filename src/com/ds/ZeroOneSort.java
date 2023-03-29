@@ -11,11 +11,11 @@ public class ZeroOneSort {
         int right = a.length - 1;
 
         while (left < right) {
-            while (a[left] == 0 ) {
+            while (a[left] == 0) {
                 left++;
             }
 
-            while (a[right] == 1 ) {
+            while (a[right] == 1) {
                 right--;
             }
 

@@ -2,6 +2,7 @@ package com.ds.str;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Stack;
 
 public class BalancedParentheses {
 
@@ -41,8 +42,25 @@ public class BalancedParentheses {
         return (stack.isEmpty());
     }
 
+    private static boolean balPar2(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (Character c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (stack.isEmpty() || c != stack.pop()) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
     public static void main(String[] args) {
         String expr = "([{}])";
         System.out.println(balPar(expr));
+        System.out.println(balPar2(expr));
     }
 }

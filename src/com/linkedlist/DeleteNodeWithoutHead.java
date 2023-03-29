@@ -3,8 +3,8 @@ package com.linkedlist;
 public class DeleteNodeWithoutHead {
 
     public static class Node {
-        Node next;
-        int data;
+        private Node next;
+        private int data;
 
         Node(int data) {
             this.data = data;
@@ -27,29 +27,22 @@ public class DeleteNodeWithoutHead {
         temp.next = toAdd;
     }
 
-    public void display() {
+    private void display() {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
-    static Node deletedNode( int data) {
-        Node toBeDeleted = new Node(data);
-        if (toBeDeleted == null)  // If linked list is empty
-            return null;
-        else {
-            if (toBeDeleted.next == null) {
-                System.out.print("Last node can't be freed");
-                return null;
-            }
-            // Copy data of the next node to the current node
-            toBeDeleted.data = toBeDeleted.next.data;
-            toBeDeleted.next = toBeDeleted.next.next;
-            return null;
+    private void deletedNode(Node n) {
+        if (n.next == null) {
+            System.out.print("Last node can't be freed");
+            return;
         }
-
+        n.data = n.next.data;
+        n.next = n.next.next;
     }
 
     public static void main(String[] args) {
@@ -59,8 +52,9 @@ public class DeleteNodeWithoutHead {
         ll.insert(30);
         ll.insert(40);
         ll.insert(50);
+        ll.display();
 
-        ll.deletedNode(10);
+        ll.deletedNode(ll.head.next.next);
 
         ll.display();
     }

@@ -1,18 +1,18 @@
 package com.ds.str;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DuplicateCharactersInString {
 
     public static void main(String[] args) {
-        String ip = "Java is OOP 1100OOO";
+        String ip = "Java is object oriented programming language.";
         dupChar(ip);
+        findDup(ip);
     }
 
     public static void findDup(String s) {
-        HashMap<Character, Integer> map = new LinkedHashMap<>();
+        long start = System.currentTimeMillis();
+        Map<Character, Integer> map = new LinkedHashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != ' ') {
@@ -30,9 +30,12 @@ public class DuplicateCharactersInString {
             }
         }
 
+        long end = System.currentTimeMillis();
+        System.out.println("maptime:" + (end - start));
     }
 
     public static void dupChar(String s) {
+        long start = System.currentTimeMillis();
         char[] ch = s.toCharArray();
 
         for (int i = 0; i < ch.length; i++) {
@@ -47,6 +50,8 @@ public class DuplicateCharactersInString {
                 System.out.println(ch[i] + " " + count);
             }
         }
+        long end = System.currentTimeMillis();
+        System.out.println("nestedforTime:" + (end - start));
     }
 
     public static void dup(String s) {

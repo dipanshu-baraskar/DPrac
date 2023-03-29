@@ -23,7 +23,7 @@ public class MapVsFlatMapDemo {
         //mapping : customer -> phone Numbers
         //c-> c.getPhoneNumbers() : one to many mapping
         //below function will return List<String>
-        List<String> phoneNumberFlatList=list.stream().flatMap(c-> c.getPhoneNumbers().stream()).collect(Collectors.toList());
+        List<String> phoneNumberFlatList = list.stream().flatMap(c -> c.getPhoneNumbers().stream()).collect(Collectors.toList());
         System.out.println(phoneNumberFlatList);
     }
 }
